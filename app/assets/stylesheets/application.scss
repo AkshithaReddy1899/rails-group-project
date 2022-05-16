@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'partials/reset';
+@import 'partials/nav';
+@import 'partials/typography';
+@import 'style'
