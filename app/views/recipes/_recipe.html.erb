@@ -1,6 +1,6 @@
 <div class='recipe-info'>
    <h3> Recipe <%= index + 1 %> </h3>
-   <%= link_to 'REMOVE', "/users/#{params[:user_id]}/recipes/#{recipe.id}"%>
+   <%= link_to 'REMOVE', "/users/#{params[:user_id]}/recipes/#{recipe.id}", method: :delete %>
 </div>
 
 <div class='recipe-desc'>
