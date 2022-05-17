@@ -18,7 +18,6 @@
 
         .recipe-info, .recipe-desc{
             flex: 1;
-            border: 1px solid black;
             padding: 10px;
         }
 
@@ -27,4 +26,27 @@
         }
 
     }
+}
+
+.show-container{
+    width: 80%;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+
+    .show-recipe{
+        width: 95%;
+        margin: 0 auto;
+        border: 1px solid black;
+
+        h3 {
+            width: 200px;
+            margin: 40px auto;
+        }
+
+
+    }
+
 }
