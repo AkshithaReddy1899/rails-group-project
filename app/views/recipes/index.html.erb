@@ -1,1 +1,7 @@
-<h1>Hello Recipe</h1>
+<div class='recipes-container'>
+    <% @recipes.each_with_index do |recipe, index| %>
+        <div class='recipes'>
+         <%= render 'recipe', recipe: recipe, index: index %>
+        </div>
+    <% end %>
+</div>
