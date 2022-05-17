@@ -3,6 +3,7 @@
   display: flex;
   margin: 30px auto;
   padding: 20px;
+  flex-direction: column;
 
   .recipes {
     width: 80%;
@@ -15,6 +16,7 @@
     margin: 0 auto;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    margin-bottom: 10px;
 
     .recipe-info,
     .recipe-desc {
@@ -30,7 +32,6 @@
 
 .show-container {
   width: 80%;
-  border: 1px solid red;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -71,6 +72,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    margin-bottom: 20px;
 
     button {
       background-color: #fff;
@@ -109,4 +111,10 @@
     }
     }
   }
+
+  .bottom-divider {
+    width: 95%;
+    border: 1px solid gray;
+    margin-bottom: 30px;
+}
 }

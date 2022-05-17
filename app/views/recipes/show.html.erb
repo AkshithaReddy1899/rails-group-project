@@ -1,6 +1,7 @@
 <div class='show-container'>
     <div class='show-recipe'>
-        <h3>Recipe <%= @recipe.id %></h3>
+        <% if @recipe.public == true && @recipe.user %>
+            <h3>Recipe <%= @recipe.id %></h3>
         <div class='recipe-details'>
             <div class='info'>
                 <p>Preparation time: <%= @recipe.preparation_time %><p>
@@ -14,8 +15,11 @@
             <button type='button'>Generate shopping list</button>
             <button><%= link_to "Add Food", new_user_food_path %></button>
         </div>
-        <hr>
-        <div class='food-container'></div>
+        <hr class='bottom-divider'>
+        <div class='food-container'>
+            <h1>The form goes here</h1>
+        </div>
+        <%end%>
     </div>
 
 

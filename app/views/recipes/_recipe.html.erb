@@ -6,4 +6,5 @@
 <div class='recipe-desc'>
     <h5>Description for the recipe</h5>
     <p><%= recipe.description %></p>
+    <%= link_to 'View recipe', user_recipe_path(params[:user_id], recipe.id)%>
 </div>
