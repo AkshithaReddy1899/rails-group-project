@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[:show, :edit, :update, :destroy]
 
   def index
-    @user = current_user
+    # @user = current_user
+    @user = User.find(params[:user_id])
     @recipes = @user.recipes.all
   end
 
@@ -49,11 +50,12 @@ def update
 end
 
 def destroy
-  @user = current_user
-  @recipe = @user.recipe.find(params[:id])
+  # @user = current_user
+  # @user = User.find(params[:user_id])
+  @recipe = Recipe.find(params[:id])
   @recipe.destroy
   respond_to do |format|
-    format.html { redirect_to recipe_paths, notice: "Recipe was successfully destroyed." }
+    format.html { redirect_to user_recipes_path(params[:user_id]), notice: "Recipe was successfully destroyed." }
     format.json { head :no_content }
   end
 end
