@@ -14,7 +14,7 @@ class Recipe < ApplicationRecord
   def public?
     @user = current_user
     @recipes = @user.recipes.find(params[:id])
-    @recipes.public
+    @recipes.public = true
   end
 
   def description_substr

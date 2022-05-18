@@ -55,4 +55,4 @@ pepper_soup = Recipe.create(
     user_id: user_two.id
 )
 
-food = Food.new(name: 'Apple', measurement_unit: 'grams', price: 5, user_id: 1)
+food = Food.create(name: 'Apple', measurement_unit: 'grams', price: 5, user_id: 1)
