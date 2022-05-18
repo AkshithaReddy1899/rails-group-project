@@ -6,7 +6,7 @@
             <div class='info'>
                 <p>Preparation time: <%= @recipe.preparation_time %><p>
                 <p>Cooking time: <%= @recipe.cooking_time %><p>
-                <p><%= @recipe.description.truncate(20) %></p>
+                <p><%= @recipe.description %></p>
             </div>
             <p>Public: <%= @recipe.public %></p>
         </div>
@@ -16,10 +16,6 @@
             <button><%= link_to "Add Food", new_user_food_path %></button>
         </div>
         <hr class='bottom-divider'>
-        <div class='food-container'>
-            <h1>The form goes here</h1>
-        </div>
-
         <% else %>
             <p>This recipe is not available for public views</p>
         <%end%>

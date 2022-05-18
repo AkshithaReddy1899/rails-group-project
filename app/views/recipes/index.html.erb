@@ -1,7 +1,11 @@
 <div class='recipes-container'>
-    <% @recipes.each_with_index do |recipe, index| %>
+    <% if @recipes.empty? %>
+        <%= render 'no_recipe'%>
+    <% else %>
+        <% @recipes.each_with_index do |recipe, index| %>
         <div class='recipes'>
          <%= render 'recipe', recipe: recipe, index: index %>
         </div>
+        <% end %>
     <% end %>
 </div>

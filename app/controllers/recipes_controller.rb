@@ -2,13 +2,12 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[:show, :edit, :update, :destroy]
 
   def index
-    # @user = current_user
+    @recipes = Recipe.includes(:user).where(user_id: params[:user_id])
     @user = User.find(params[:user_id])
-    @recipes = @user.recipes.all
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:user_id])
     @recipe = @user.recipes.find(params[:id])
   end
 
@@ -33,32 +32,33 @@ class RecipesController < ApplicationController
       end
     end
   end
-end
 
-def update
-  @user = current_user
-  @recipe = @user.recipes.find(params[:id])
-  respond_to do |format|
-    if @recipe.update(recipe_params)
-      format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
-      format.json { render :show, status: :ok, location: @recipe }
-    else
-      format.html { render :edit, status: :unprocessable_entity }
-      format.json { render json: @recipe.errors, status: :unprocessable_entity }
+  def update
+    @user = current_user
+    @recipe = @user.recipes.find(params[:id])
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    respond_to do |format|
+      format.html { redirect_to user_recipes_path(params[:user_id]), notice: "Recipe was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
 end
 
-def destroy
-  # @user = current_user
-  # @user = User.find(params[:user_id])
-  @recipe = Recipe.find(params[:id])
-  @recipe.destroy
-  respond_to do |format|
-    format.html { redirect_to user_recipes_path(params[:user_id]), notice: "Recipe was successfully destroyed." }
-    format.json { head :no_content }
-  end
-end
 
 private
 

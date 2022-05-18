@@ -11,10 +11,10 @@ class Recipe < ApplicationRecord
   has_many :recipe_foods, dependent: :destroy
 
 
-  def is_public?
+  def public?
     @user = current_user
-    @recipe = @user.recipes.find(params[:id])
-    # if true return @recipe.public
+    @recipes = @user.recipes.find(params[:id])
+    @recipes.public
   end
 
   def description_substr
