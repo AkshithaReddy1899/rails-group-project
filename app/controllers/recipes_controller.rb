@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
     @recipes = Recipe.includes(:user).where(user_id: params[:user_id])
@@ -16,8 +16,8 @@ class RecipesController < ApplicationController
     @recipe = @user.recipes.new
   end
 
-   # GET /recipes/1/edit
-   def edit; end
+  # GET /recipes/1/edit
+  def edit; end
 
   def create
     @user = current_user
@@ -65,7 +65,6 @@ private
 def set_recipe
   @recipe = Recipe.find(params[:id])
 end
-
 
 def recipe_params
   params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)

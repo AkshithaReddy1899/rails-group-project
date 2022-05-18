@@ -1,3 +1,17 @@
-<div id="users">
-  <h1>Hello world</h1>
+<div class="container-fluid">
+  <div class="column">
+    <div class="row">
+      <div class="add text-end">
+        <%= link_to "Add food", new_user_food_path, method: :get, class: "btn btn-secondary"  %>
+      </div>
+      <div class="foods-table">
+        <% if @foods.blank?%>
+          <p>No foods present! Add one.</p>
+        <%else%>
+          <%= render :partial => "food-table" %>
+        <%end%>
+    </div>
+  </div>
 </div>
+
+<%console%>
