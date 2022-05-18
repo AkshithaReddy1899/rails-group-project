@@ -73,3 +73,5 @@ group :test do
 end
 
 gem 'tzinfo-data', '~> 1.2022', '>= 1.2022.1'
+
+gem 'better_errors', '~> 2.9', '>= 2.9.1'

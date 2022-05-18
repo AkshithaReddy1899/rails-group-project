@@ -1,19 +1,17 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col"><b>Food</b></th>
       <th scope="col"><b>Measurement unit</b></th>
       <th scope="col"><b>Unit price</b></th>
     </tr>
   </thead>
   <tbody>
-    <%= foods.each.with_index do |f, index|%>
+    <%= @foods.each do |f|%>
       <tr>
-        <th scope="row"><%=index + 1%></th>
 				<td><%=f.name %></td>
 				<td><%=f.measurement_unit %></td>
-				<td><%=f.price %></td>
+				<td>$<%=f.price %></td>
       </tr>
     <%end%>
   </tbody>
