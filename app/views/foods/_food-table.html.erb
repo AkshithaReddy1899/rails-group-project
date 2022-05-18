@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><b>Food</b></th>
+      <th scope="col"><b>Measurement unit</b></th>
+      <th scope="col"><b>Unit price</b></th>
+			<th scope="col"><b>Actions</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @foods.each do |f|%>
+      <tr>
+				<td><%=f.name %></td>
+				<td><%=f.measurement_unit %></td>
+				<td>$<%=f.price %></td>
+				<td><%= button_to "Delete", user_food_path(f.user_id, f.id), method: :delete %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>
