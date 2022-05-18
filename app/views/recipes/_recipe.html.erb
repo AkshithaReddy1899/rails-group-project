@@ -1,0 +1,10 @@
+<div class='recipe-info'>
+   <h3> Recipe <%= index + 1 %> </h3>
+   <%= button_to 'REMOVE', user_recipe_path(params[:user_id], recipe.id), method: :delete %>
+</div>
+
+<div class='recipe-desc'>
+    <h5>Description for the recipe</h5>
+    <p><%= recipe.description_substr %></p>
+    <%= link_to 'View recipe', user_recipe_path(params[:user_id], recipe.id)%>
+</div>

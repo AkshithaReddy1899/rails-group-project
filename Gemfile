@@ -10,6 +10,8 @@ gem 'rails', '~> 7.0.3'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
+gem 'better_errors', '~> 2.9', '>= 2.9.1'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
@@ -52,6 +54,7 @@ gem 'sassc-rails'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
