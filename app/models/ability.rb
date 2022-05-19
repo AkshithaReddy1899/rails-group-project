@@ -10,10 +10,10 @@ class Ability
       if user.role == 'admin'
         can :manage, :all
       elsif user.role == 'author'
-        can :manage, Food, user_id: user.id
-        can :read, Food
-        can :create, Food, user_id: user.id
-        can :destroy, Food, user_id: user.id 
+        can :manage, [Food, Recipe], user_id: user.id
+        can :read, [Food, Recipe]
+        can :create, [Food, Recipe], user_id: user.id
+        can :destroy, [Food, Recipe], user_id: user.id 
       end
     #
     # The first argument to `can` is the action you are giving the user

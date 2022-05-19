@@ -15,6 +15,7 @@
         </div>
 
         <div class='show-btns'>
+          <%# if can? :create, @recipes.new %>
             <button type='button'>Generate shopping list</button>
             <button><%= link_to "Add Food", new_user_food_path %></button>
         </div>

@@ -1,4 +1,6 @@
 <div class='recipes-container'>
+  <%= @user.name %>
+  <%= @user.role%>
     <% if @recipes.empty? %>
         <%= render 'no_recipe'%>
     <% else %>
