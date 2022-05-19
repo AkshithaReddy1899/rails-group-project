@@ -13,9 +13,14 @@ class FoodsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @new_food = Food.create(food_params)
-    @new_food.user_id = current_user.id
-    redirect_to user_foods_path(current_user.id)
+    @new_food.user_id = @user.id
+    if @new_food.save
+      redirect_to user_foods_path(@user.id)
+    else
+      redirect_to user_foods_path(@user.id)
+    end
   end
 
   def destroy
