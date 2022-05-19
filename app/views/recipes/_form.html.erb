@@ -1,5 +1,5 @@
 <div class='form-container'>
-    <%= form_with model: recipe, url: user_recipes_path, scope: :recipe, class: 'form' do |form| %>
+    <%= form_with model: recipe, url: user_recipes_path, scope: :recipe do |form| %>
      <% if recipe.errors.any? %>
         <div style="color: red">
         <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -25,13 +25,17 @@
     <%= form.label :cooking_time, style: "display: block" %>
     <%= form.text_field :cooking_time, placeholder: 'Enter cooking time (e.g 1 hour)' %>
   </div>
-    <%= form.hidden_field :public, value: 'false' %>
+    <div>
+      <%= form.check_box :public%>
+      <%= form.label :public %>
+      </div>
+
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description, cols: 30, rows: 10, placeholder: 'Write recipe description' %>
   </div>
   <div>
-    <%= form.submit "Create Recipe", class: "recipe-btn" %>
+    <%= form.submit "Create Recipe", class: "recipe-btn"%>
   </div>
 <% end %>
 

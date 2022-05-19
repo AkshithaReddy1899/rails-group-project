@@ -8,14 +8,23 @@
                 <p>Cooking time: <%= @recipe.cooking_time %><p>
                 <p><%= @recipe.description %></p>
             </div>
-            <div class="form-check form-switch">
+            <% if @recipe.public %>
+              <div class="form-check form-switch">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked= <%= @recipe.public %> />
-            </div>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+              </div>
+            <% end %>
+            <% if !@recipe.public %>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+              </div>
+            <% end %>
         </div>
 
         <div class='show-btns'>
-            <button type='button'>Generate shopping list</button>
+          <%# if can? :create, @recipes.new %>
+            <button type='button'> <%= link_to "Generate shopping list", shopping_list_index_path %></button>
             <button><%= link_to "Add Food", new_user_food_path %></button>
         </div>
         <hr class='bottom-divider'>

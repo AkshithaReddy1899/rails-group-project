@@ -1,6 +1,8 @@
 <div class='recipe-info'>
    <h3> Recipe <%= index + 1 %> </h3>
-   <%= button_to 'REMOVE', user_recipe_path(params[:user_id], recipe.id), method: :delete %>
+   <% if can? :destroy, recipe %>
+     <%= button_to 'REMOVE', user_recipe_path(params[:user_id], recipe.id), method: :delete %>
+   <%end%>
 </div>
 
 <div class='recipe-desc'>
