@@ -10,7 +10,7 @@
     <%= @foods.each do |f|%>
       <tr>
 				<td><%=f.name %></td>
-				<td><%=f.measurement_unit %></td>
+				<td><%=f.measurement_unit %>grams</td>
 				<td>$<%=f.price %></td>      
         <% if can? :destroy, f %>
           <td><%= button_to "Delete", user_food_path(f.user_id, f.id), method: :delete %></td>
