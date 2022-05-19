@@ -20,9 +20,17 @@ class RecipesController < ApplicationController
   def edit; end
 
   def create
-    @user = current_user
-    @recipe = @user.recipes.new(recipe_params)
-    @recipe.public = false
+    # @user = current_user
+    # @recipe = @user.recipes.new(recipe_params)
+    @recipe = Recipe.new(
+      name: recipe_params[:name],
+      preparation_time: recipe_params[:preparation_time],
+      cooking_time: recipe_params[:cooking_time],
+      description: recipe_params[:description],
+      public: recipe_params[:public],
+      user_id: params[:user_id]
+    )
+
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
@@ -66,5 +74,5 @@ def set_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :user_id)
+  params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :public, :description)
 end
