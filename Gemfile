@@ -79,3 +79,5 @@ gem 'better_errors', '~> 2.9', '>= 2.9.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'letter_opener', '~> 1.8', '>= 1.8.1'
+
+gem 'cancancan'

@@ -4,7 +4,6 @@
       <th scope="col"><b>Food</b></th>
       <th scope="col"><b>Measurement unit</b></th>
       <th scope="col"><b>Unit price</b></th>
-			<th scope="col"><b>Actions</b></th>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +11,10 @@
       <tr>
 				<td><%=f.name %></td>
 				<td><%=f.measurement_unit %></td>
-				<td>$<%=f.price %></td>
-				<td><%= button_to "Delete", user_food_path(f.user_id, f.id), method: :delete %></td>
+				<td>$<%=f.price %></td>      
+        <% if can? :destroy, f %>
+          <td><%= button_to "Delete", user_food_path(f.user_id, f.id), method: :delete %></td>
+        <%end%>
       </tr>
     <%end%>
   </tbody>
