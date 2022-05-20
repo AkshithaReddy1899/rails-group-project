@@ -18,11 +18,8 @@ class FoodsController < ApplicationController
     @user = User.find(params[:user_id])
     @new_food = Food.create(food_params)
     @new_food.user_id = @user.id
-    if @new_food.save
-      redirect_to user_foods_path(@user.id)
-    else
-      redirect_to user_foods_path(@user.id)
-    end
+    @new.save
+    redirect_to user_foods_path(@user.id)
   end
 
   def destroy
