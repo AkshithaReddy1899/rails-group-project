@@ -1,9 +1,13 @@
 <div class="container-fluid">
   <div class="column">
     <div class="row">
+    <% if can? :create, @foods.new %>
       <div class="add text-end">
         <%= link_to "Add food", new_user_food_path, method: :get, class: "btn btn-secondary"  %>
       </div>
+    <%end%>
+      <%= @user.name%>
+      <%= @user.role %>
       <div class="foods-table">
         <% if @foods.blank?%>
           <p>No foods present! Add one.</p>
@@ -13,5 +17,3 @@
     </div>
   </div>
 </div>
-
-<%console%>
