@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -7,14 +5,15 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     user ||= User.new # guest user (not logged in)
-      if user.role == 'admin'
-        can :manage, :all
-      elsif user.role == 'author'
-        can :manage, [Food, Recipe], user_id: user.id
-        can :read, [Food, Recipe]
-        can :create, [Food, Recipe], user_id: user.id
-        can :destroy, [Food, Recipe], user_id: user.id 
-      end
+    case user.role
+    when 'admin'
+      can :manage, :all
+    when 'author'
+      can :manage, [Food, Recipe], user_id: user.id
+      can :read, [Food, Recipe]
+      can :create, [Food, Recipe], user_id: user.id
+      can :destroy, [Food, Recipe], user_id: user.id
+    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
