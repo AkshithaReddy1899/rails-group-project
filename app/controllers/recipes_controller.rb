@@ -2,12 +2,12 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.includes(:user).where(user_id: params[:user_id])
-    @user = User.find(params[:user_id])
+    @recipes = Recipe.all
+    @user = current_user
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @recipe = @user.recipes.find(params[:id])
   end
 
@@ -28,12 +28,12 @@ class RecipesController < ApplicationController
       cooking_time: recipe_params[:cooking_time],
       description: recipe_params[:description],
       public: recipe_params[:public],
-      user_id: params[:user_id]
+      user_id: current_user.id
     )
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to user_recipes_path(current_user.id), notice: 'Recipe was successfully created.' }
+        format.html { redirect_to recipes_path(current_user.id), notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,11 +57,11 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
+    @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to user_recipes_path(params[:user_id]), notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to recipes_path(current_user.id), notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

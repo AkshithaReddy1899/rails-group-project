@@ -1,4 +1,4 @@
-<%= form_with :model => @food, url: user_foods_path(@user.id), method: :post do |f| %>
+<%= form_with :model => @food, url: foods_path(current_user.id), method: :post do |f| %>
   <%= f.label :name, class: "form-label"%>
 	<%= f.text_field :name, placeholder: "Eg: Apple", class: "form-control" %>
 
