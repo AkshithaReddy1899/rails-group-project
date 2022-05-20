@@ -11,7 +11,7 @@ class Ability
     when 'author'
       can :manage, [Food, Recipe], user_id: user.id
       can :read, [Food, Recipe]
-      can :create, [Food, Recipe], user_id: user.id
+      can :create, [Food, Recipe]
       can :destroy, [Food, Recipe], user_id: user.id
     end
     #

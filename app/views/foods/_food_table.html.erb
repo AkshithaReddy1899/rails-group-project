@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table border">
   <thead>
     <tr>
       <th scope="col"><b>Food</b></th>
@@ -6,6 +6,16 @@
       <th scope="col"><b>Unit price</b></th>
     </tr>
   </thead>
+  <tbody>
+		<% @foods.each do |f| %>
+		  <tr>
+			  <td><%= f.name %></td>
+				<td><%= f.measurement_unit %> grams</td>
+				<td>$<%= f.price %></td>
+			</tr>
+		<%end%>
+  </tbody>
+</table>
   <tbody>
     <%= @foods.each do |f|%>
       <tr>

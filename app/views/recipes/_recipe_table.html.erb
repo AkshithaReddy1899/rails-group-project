@@ -8,13 +8,11 @@
     </thead>
     <tbody>
        <% @recipe_foods.each do |f| %>
-        <% if @foods.include?(f.food)%>
         <tr class="active-row">
             <td><%= f.food.name%></td>
             <td><%= f.quantity %> <%= f.food.measurement_unit %></td>
             <td> $<%= f.food.price * f.quantity %></td>
         </tr>
-        <% end %>
         <% end %>
     </tbody>
   </table>
