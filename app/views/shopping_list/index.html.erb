@@ -2,11 +2,8 @@
    <h2 class="text-center mb-5 text-secondary">Shopping List</h2>
   <% if user_signed_in? %>
     <div class="d-flex flex-row justify-content-evenly mb-5">
-      <% @recipe.each do |recipe| %>
-        <% @total += @recipe.total(recipe.id) %>
-          <h3 class="text-secondary">Amounts of items to buy: <%= @recipe_foods.where(recipe_id: recipe.id).count %> </h3>
-          <h3 class="text-secondary">Total price: $<%= @total %> </h3>
-      <% end %>
+          <h3 class="text-secondary">Amounts of items to buy: <%= @recipe_foods.length %> </h3>
+          <h3>Total value of food needed: <span class="font-bold">$<%= @recipe_foods.map {|r| r.food.price.to_i * r.quantity.to_i }.sum %></span></h3>
     </div>
   <table class="table">
     <thead>
