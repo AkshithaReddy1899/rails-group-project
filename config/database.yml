@@ -29,40 +29,24 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-<<<<<<< HEAD
   # username: recipe_app
-  # username: postgres
+  username: postgres
 
   # The password associated with the postgres role (username).
   #password:
   # password: 1234
-=======
-  #username: recipe_app
-  #username: postgres
-
-  # The password associated with the postgres role (username).
-  #password:
-  #password: 1234
->>>>>>> 964c0266f374cea3a45ebf874ca7b9fe409d9ded
+  password: 1234
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
   #host: localhost
-<<<<<<< HEAD
-  # host: localhost
-=======
-  #host: localhost
->>>>>>> 964c0266f374cea3a45ebf874ca7b9fe409d9ded
+  host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
   #port: 5432
-<<<<<<< HEAD
-  # port: 5432
-=======
-  #port: 5432
->>>>>>> 964c0266f374cea3a45ebf874ca7b9fe409d9ded
+  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -79,13 +63,8 @@ development:
 test:
   <<: *default
   database: recipe_app_test
-<<<<<<< HEAD
-  # username: postgres
-  # password: 1234
-=======
-  #username: postgres
-  #password: 1234
->>>>>>> 964c0266f374cea3a45ebf874ca7b9fe409d9ded
+  username: postgres
+  password: 1234
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
