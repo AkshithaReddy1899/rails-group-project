@@ -11,6 +11,7 @@
           <th>Food</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th>Amount</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
         <tr class="active-row">
           <td><%= f.food.name%></td>
           <td><%= f.quantity %> <%= f.food.measurement_unit %></td>
+          <td class="p-4">$<%= f.food.price %></td>
           <td> $<%= f.food.price * f.quantity %></td>
         </tr>
         <% end %>

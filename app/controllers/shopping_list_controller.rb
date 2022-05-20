@@ -5,9 +5,5 @@ class ShoppingListController < ApplicationController
     @recipe_foods = RecipeFood.all
     @foods = Food.where(user_id: @user.id)
     @recipes = @user.recipes
-    # @total = 0
-    # @recipe.each do |recipe|
-    #   @total += Recipe.total
-    # end
   end
 end

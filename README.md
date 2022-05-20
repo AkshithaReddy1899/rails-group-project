@@ -32,8 +32,8 @@ To get a local copy up and running follow these simple example steps.
 Clone this repository
 
 `git clone
-$ https://github.com/netman5/blog.git
-$ cd blog `
+$ https://github.com/AkshithaReddy1899/rails-group-project.git
+$ cd rails-group-project `
 
 # Run project
 
@@ -46,11 +46,11 @@ $ cd blog `
 
 # Authors
 
-👤 Ola Ishola
+👤 **Ola Ishola**
 
-GitHub: [@netman5](https://github.com/netman5)
-Twitter: @Orlaish
-LinkedIn: LinkedIn
+- GitHub: [@netman5](https://github.com/netman5)
+- Twitter: [@Orlaish](https://twitter.com/Orlaish)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ola-ishola/)
 
 
 👤 **Akshitha Reddy**
@@ -62,7 +62,7 @@ LinkedIn: LinkedIn
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the issues page.
+Feel free to check the [issues page](https://github.com/AkshithaReddy1899/rails-group-project/issues).
 
 ## Show your support
 Give a ⭐️ if you like this project!

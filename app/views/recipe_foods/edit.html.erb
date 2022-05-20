@@ -1,0 +1,11 @@
+<div class="container mx-auto flex justify-center">
+  <div class="p-6 max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-2">
+    <h1 class="font-bold text-4xl mb-10">Edit ingredient</h1>
+    <%= form_with model: @recipe_food, url: recipe_food_path(recipe_id: @recipe_food.recipe_id, id: @recipe_food.id), html: { class: 'flex flex-col items-start gap-4' }, method: :put do |f| %>
+      <%= f.hidden_field :id, value: @recipe_food.id %>
+      <%= f.hidden_field :recipe_id, value: @recipe_food.recipe_id %>
+      <%= f.number_field :quantity, placeholder: 'Quantity', min: 0, required: true, class: "w-full max-w-[100px] p-2" %>
+      <%= f.submit "Add ingredient", class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div>
