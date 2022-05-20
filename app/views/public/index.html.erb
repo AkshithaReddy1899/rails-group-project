@@ -5,7 +5,7 @@
    <div class= "recipe">
       <h2><%= recipe.name%><br>by<br><%= recipe.user[:name] %></h2>
       <h3>Total food Items: <%=Recipe.items(recipe.id)%></h3>
-      <%# <h3>Total Price: $<%=Recipe.total(recipe.id)%></h3> %>
+      <h3>Total Price: $<%=Recipe.total(recipe.id)%></h3>
   </div>
   <% end %>
   </div>

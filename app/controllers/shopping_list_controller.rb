@@ -6,8 +6,8 @@ class ShoppingListController < ApplicationController
     @foods = Food.where(user_id: @user.id)
     @recipes = @user.recipes
     @total = 0
-    # @recipe.each do |recipe|
-    #   @total += Recipe.total
-    # end
+    @recipe.each do |recipe|
+      @total += Recipe.total(recipe.id)
+    end
   end
 end
