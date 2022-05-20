@@ -3,7 +3,8 @@
         <tr>
            <th>Food</th>
            <th>Quantity</th>
-           <th>Price</th>
+           <th>Value</th>
+           <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -12,6 +13,12 @@
             <td><%= f.food.name%></td>
             <td><%= f.quantity %> <%= f.food.measurement_unit %></td>
             <td> $<%= f.food.price * f.quantity %></td>
+            <% if can? :destroy, f %>
+              <td><%= button_to "Modify", edit_recipe_food_path(f.id), method: :get %></td>
+              <td><%= button_to "Delete", recipe_food_path(f.id), method: :delete %></td>
+            <% else %>
+              <td>----</td>
+            <%end%>
         </tr>
         <% end %>
     </tbody>

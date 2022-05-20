@@ -1,9 +1,10 @@
-<table class="table">
+<table class="table table-container">
   <thead>
     <tr>
       <th scope="col"><b>Food</b></th>
       <th scope="col"><b>Measurement unit</b></th>
       <th scope="col"><b>Unit price</b></th>
+      <th scope="col"><b>Actions</b></th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,11 @@
 			  <td><%= f.name %></td>
 				<td><%= f.measurement_unit %> grams</td>
 				<td>$<%= f.price %></td>
+        <% if can? :destroy, f %>
+          <td><%= button_to "Delete", food_path(f.id), method: :delete %></td>
+        <%else%>
+         <td>-----</td>
+        <%end%>
 			</tr>
 		<%end%>
   </tbody>
