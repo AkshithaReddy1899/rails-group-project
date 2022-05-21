@@ -10,20 +10,20 @@ RSpec.describe Food, type: :model do
   end
 
   it 'measurement unit should not be null' do
-		@food.measurement_unit = nil
+    @food.measurement_unit = nil
     expect(@food).to_not be_valid
   end
 
-	it 'measurement unit should be greater than zero' do
-		expect(@food.measurement_unit).to be >= 1
+  it 'measurement unit should be greater than zero' do
+    expect(@food.measurement_unit).to be >= 1
   end
 
-	it 'price should not be null' do
-		@food.price = nil
+  it 'price should not be null' do
+    @food.price = nil
     expect(@food).to_not be_valid
   end
 
-	it 'price should be greater than zero' do
-		expect(@food.price).to be >= 1
+  it 'price should be greater than zero' do
+    expect(@food.price).to be >= 1
   end
 end
