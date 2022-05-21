@@ -61,9 +61,9 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_path(current_user.id), notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+    
+    if @recipe.destroy
+      redirect_to recipe_path(@recipe.id)
     end
   end
 end

@@ -14,7 +14,7 @@
 				<td><%= f.measurement_unit %> grams</td>
 				<td>$<%= f.price %></td>
         <% if can? :destroy, f %>
-          <td><%= button_to "Delete", food_path(f.id), method: :delete %></td>
+          <td><%= button_to "Delete", food_path(f.id), method: :delete, class: "btn btn-secondary" %></td>
         <%else%>
          <td>-----</td>
         <%end%>
