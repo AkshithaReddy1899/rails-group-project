@@ -23,8 +23,10 @@
         </div>
 
          <div class='show-btns'>
-            <button type='button'> <%= link_to "Generate shopping list", shopping_list_index_path %></button>
-            <button><%= link_to "Add Ingredient", new_recipe_food_path %></button>
+            <button type='button'> <%= link_to "Generate shopping list", "/recipes/#{@recipe.id}/shopping_list" %></button>
+            <button>
+            <%= link_to "Add Ingredient", "/recipes/#{@recipe.id}/recipe_foods/new"%>
+            </button>
         </div>
 
         <hr class='bottom-divider'>

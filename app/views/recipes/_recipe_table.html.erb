@@ -11,11 +11,11 @@
        <% @recipe_foods.each do |f| %>
         <tr class="active-row">
             <td><%= f.food.name%></td>
-            <td><%= f.quantity %>grams</td>
+            <td><%= f.quantity %> grams</td>
             <td> $<%= f.food.price * f.quantity %></td>
             <% if can? :destroy, f %>
-              <td><%= button_to "Modify", edit_recipe_food_path(f.id), method: :get, class:"btn btn-secondary"%></td>
-              <td><%= button_to "Delete", recipe_food_path(f.id), method: :delete, class:"btn btn-secondary" %></td>
+              <td><button class="btn btn-secondary">Modify</button></td>
+              <td><%= button_to "Delete", recipe_recipe_food_path(f.id), method: :delete, class:"btn btn-secondary" %></td>
             <% else %>
               <td>----</td>
             <%end%>

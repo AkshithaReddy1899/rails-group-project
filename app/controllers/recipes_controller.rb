@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   def show
     @user = current_user
     @recipe = Recipe.find(params[:id])
-    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id)
+    @recipe_foods = @recipe.recipe_foods.all
   end
 
   def new
