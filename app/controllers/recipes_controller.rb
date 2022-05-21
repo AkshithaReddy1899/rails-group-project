@@ -61,10 +61,8 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    
-    if @recipe.destroy
-      redirect_to recipe_path(@recipe.id)
-    end
+
+    redirect_to recipe_path(@recipe.id) if @recipe.destroy
   end
 end
 
