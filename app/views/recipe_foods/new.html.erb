@@ -1,12 +1,16 @@
-<%= form_with :model => @recipe_food, url: recipe_foods_path, method: :post do |f| %>
-  <%= f.label :quantity, class: "form-label"%>
-	<%= f.number_field :quantity, placeholder: "20", class: "form-control" %>
+<div class="new-form">
+  <div class="form-container">
+		<%= form_with :model => @recipe_food, url: recipe_foods_path, method: :post do |f| %>
+			<%= f.label :quantity, class: "form-label"%>
+			<%= f.number_field :quantity, placeholder: "20", class: "form-control" %>
 
-	<%= f.label :food_id, class: "form-label"%>
-	<%= f.number_field :food_id, placeholder: "Eg: grams, units", class: "form-control" %>
+			<%= f.label :food_id, class: "form-label"%>
+			<%= f.number_field :food_id, placeholder: "Eg: grams, units", class: "form-control" %>
 
-	<%= f.label :recipe_id, class: "form-label"%>
-	<%= f.number_field :recipe_id, placeholder: "Eg: Apple", class: "form-control" %>
+			<%= f.label :recipe_id, class: "form-label"%>
+			<%= f.number_field :recipe_id, placeholder: "Eg: Apple", class: "form-control" %>
 
-	<%= f.submit "Add", class: "btn btn-secondary", data: { turbo: false } %>
-<%end%>
+			<%= f.submit "Add", class: "btn btn-secondary", data: { turbo: false } %>
+		<%end%>
+</div>
+</div>
