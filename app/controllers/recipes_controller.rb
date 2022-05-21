@@ -17,7 +17,12 @@ class RecipesController < ApplicationController
     @recipe = @user.recipes.new
   end
 
+  # GET /recipes/1/edit
+  def edit; end
+
   def create
+    # @user = current_user
+    # @recipe = @user.recipes.new(recipe_params)
     @recipe = Recipe.new(
       name: recipe_params[:name],
       preparation_time: recipe_params[:preparation_time],
