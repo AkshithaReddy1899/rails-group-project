@@ -1,0 +1,30 @@
+<section class="mt-5">
+   <h2 class="text-center mb-5 text-secondary">Shopping List</h2>
+  <% if user_signed_in? %>
+    <div class="d-flex flex-row justify-content-evenly mb-5">
+      <h3 class="text-secondary">Amounts of items to buy: <%= @recipe_foods.length %> </h3>
+      <h3>Total value of food needed: <span class="font-bold">$<%= @recipe_foods.map {|r| r.food.price.to_i * r.quantity.to_i }.sum %></span></h3>
+    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each do |f| %>
+        <tr class="active-row">
+          <td><%= f.food.name%></td>
+          <td><%= f.quantity %> grams</td>
+          <td><%= f.food.price %></td>
+          <td> $<%= f.food.price * f.quantity %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</section>
+<%console%>

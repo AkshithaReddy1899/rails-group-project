@@ -1,0 +1,12 @@
+<div class='recipe-info'>
+   <h3> Recipe <%= index + 1 %> </h3>
+   <% if can? :destroy, recipe %>
+     <%= button_to 'REMOVE', recipe_path(recipe.id), method: :delete %>
+   <%end%>
+</div>
+
+<div class='recipe-desc'>
+    <h5>Description for the recipe</h5>
+    <p><%= recipe.description_substr %></p>
+    <%= link_to 'View recipe', recipe_path(recipe.id)%>
+</div>
