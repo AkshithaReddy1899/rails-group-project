@@ -2,7 +2,7 @@
   <div class="form-container">
 		<%= form_with :model => @recipe_food, url: recipe_recipe_foods_path, method: :post do |f| %>
 			<%= f.label :quantity, class: "form-label"%>
-			<%= f.number_field :quantity, placeholder: "eg: 20", class: "form-control" %>
+			<%= f.number_field :quantity, placeholder: "in grams eg: 20", class: "form-control" %>
 
 			<%= f.select :food_id, @foods.map{ |food| [food.name, food.id] } %>
 			<br>
