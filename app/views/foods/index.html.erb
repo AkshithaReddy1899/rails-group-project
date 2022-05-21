@@ -1,19 +1,15 @@
 <div class="container-fluid">
-  <div class="column">
-    <div class="row">
-    <% if can? :create, @foods.new %>
-      <div class="add text-end">
-        <%= link_to "Add food", new_user_food_path, method: :get, class: "btn btn-secondary"  %>
-      </div>
-    <%end%>
-      <%= @user.name%>
-      <%= @user.role %>
-      <div class="foods-table">
-        <% if @foods.blank?%>
-          <p>No foods present! Add one.</p>
-        <%else%>
-          <%= render :partial => "food-table" %>
-        <%end%>
-    </div>
-  </div>
+  <% if can? :create, @foods.new %>
+		<div class="add text-end m-4">
+			<%= link_to "Add food", new_food_path, method: :get, class: "btn btn-secondary"  %>
+		</div>
+	<%end%>
+</div>
+
+<div class="foods-table">
+  <% if @foods.blank? %>
+    <p>No foods present!</p>
+  <%else%>
+    <%= render :partial => "food_table" %>
+  <%end%>
 </div>

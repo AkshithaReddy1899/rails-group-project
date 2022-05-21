@@ -1,32 +1,27 @@
 class FoodsController < ApplicationController
   load_and_authorize_resource
   def index
-    @foods = Food.includes(:user).where(user_id: params[:user_id])
-    @user = User.find(params[:user_id])
-  end
-
-  def show
-    @food = Food.find(params[:id])
+    @foods = Food.all
   end
 
   def new
     @food = Food.new
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @new_food = Food.create(food_params)
     @new_food.user_id = @user.id
-    @new.save
-    redirect_to user_foods_path(@user.id)
+    @new_food.save
+    redirect_to foods_path(@user.id)
   end
 
   def destroy
     @food = Food.find(params[:id])
-    @user = User.find(params[:user_id])
+    @user = current_user
     @food.destroy
-    redirect_to user_foods_path(current_user.id)
+    redirect_to foods_path(current_user.id)
   end
 
   def food_params

@@ -2,13 +2,14 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.includes(:user).where(user_id: params[:user_id])
-    @user = User.find(params[:user_id])
+    @user = current_user
+    @recipes = Recipe.where(user_id: @user.id)
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @recipe = @user.recipes.find(params[:id])
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods.all
   end
 
   def new
@@ -20,11 +21,20 @@ class RecipesController < ApplicationController
   def edit; end
 
   def create
-    @user = current_user
-    @recipe = @user.recipes.new(recipe_params)
+    # @user = current_user
+    # @recipe = @user.recipes.new(recipe_params)
+    @recipe = Recipe.new(
+      name: recipe_params[:name],
+      preparation_time: recipe_params[:preparation_time],
+      cooking_time: recipe_params[:cooking_time],
+      description: recipe_params[:description],
+      public: recipe_params[:public],
+      user_id: current_user.id
+    )
+
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+        format.html { redirect_to recipes_path(current_user.id), notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,13 +58,11 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
+    @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to user_recipes_path(params[:user_id]), notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    redirect_to recipe_path(@recipe.id) if @recipe.destroy
   end
 end
 
@@ -65,5 +73,5 @@ def set_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :user_id)
+  params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :public, :description)
 end
