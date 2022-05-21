@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-user_one = User.create(name: "Reddy")
-user_two = User.create(name: "Ola")
-user_three = User.create(name: "Kalle")
+user_one = User.create(name: "Reddy", email: "reddy@gmail.com", password: 123456)
+user_two = User.create(name: "Olaaa", email: "ola@gmail.com", password: 123456)
+user_three = User.create(name: "Kalle", email: "kalle@gmail.com", password: 123456)
 
 
 shawama = Recipe.create(
@@ -28,3 +28,16 @@ jollof = Recipe.create(
     user_id: user_two.id
 )
 
+Food.create(
+    name: 'Rice'
+    measurement_unit: 100
+    price: 2
+    user_id: user_two.id
+)
+
+Food.create(
+    name: 'Chicken'
+    measurement_unit: 90
+    price: 1
+    user_id: user_one.id
+)
